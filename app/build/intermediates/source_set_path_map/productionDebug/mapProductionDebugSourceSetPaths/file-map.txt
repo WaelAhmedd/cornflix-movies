@@ -1,0 +1,79 @@
+com.app.movies.app-runtime-saveable-release-0 /Users/wael.ahmed/.gradle/caches/transforms-4/005968c98306a1c0aed9d1c88dc41a59/transformed/runtime-saveable-release/res
+com.app.movies.app-ui-text-release-1 /Users/wael.ahmed/.gradle/caches/transforms-4/07536bea832a5314eddc2568d70544ba/transformed/ui-text-release/res
+com.app.movies.app-material-ripple-release-2 /Users/wael.ahmed/.gradle/caches/transforms-4/0bfeb4c7e8592797f7033382135c2c5c/transformed/material-ripple-release/res
+com.app.movies.app-navigation-compose-2.5.1-3 /Users/wael.ahmed/.gradle/caches/transforms-4/0e4c0a5bf41315cc70e372ecf71d8228/transformed/navigation-compose-2.5.1/res
+com.app.movies.app-emoji2-1.3.0-4 /Users/wael.ahmed/.gradle/caches/transforms-4/1bd5933bf4ce50875d63927edf4abb1c/transformed/emoji2-1.3.0/res
+com.app.movies.app-lifecycle-process-2.7.0-5 /Users/wael.ahmed/.gradle/caches/transforms-4/1d43ffb7307c02bcbd6b2c7c0facb037/transformed/lifecycle-process-2.7.0/res
+com.app.movies.app-activity-1.9.0-6 /Users/wael.ahmed/.gradle/caches/transforms-4/246edf2972a6bb7c449998d6cf0e9c3b/transformed/activity-1.9.0/res
+com.app.movies.app-ui-graphics-release-7 /Users/wael.ahmed/.gradle/caches/transforms-4/2a47b28878b0aaaaaa82ccde2773c869/transformed/ui-graphics-release/res
+com.app.movies.app-animation-core-release-8 /Users/wael.ahmed/.gradle/caches/transforms-4/2c9687c24032b21bfef9982d18dae3cf/transformed/animation-core-release/res
+com.app.movies.app-core-1.13.1-9 /Users/wael.ahmed/.gradle/caches/transforms-4/2fdb36529b9dd630985c8afe7b9c79a5/transformed/core-1.13.1/res
+com.app.movies.app-navigation-runtime-2.5.1-10 /Users/wael.ahmed/.gradle/caches/transforms-4/3036c827dee1b12c57917bd89a246676/transformed/navigation-runtime-2.5.1/res
+com.app.movies.app-cardview-1.0.0-11 /Users/wael.ahmed/.gradle/caches/transforms-4/31ff783d3b21a32236102096a90fcce0/transformed/cardview-1.0.0/res
+com.app.movies.app-activity-compose-1.9.0-12 /Users/wael.ahmed/.gradle/caches/transforms-4/3282763304882bc2030effb27e6a8b69/transformed/activity-compose-1.9.0/res
+com.app.movies.app-appcompat-1.6.1-13 /Users/wael.ahmed/.gradle/caches/transforms-4/34f56b1dba0c0f43463636158a497f1f/transformed/appcompat-1.6.1/res
+com.app.movies.app-navigation-runtime-ktx-2.5.1-14 /Users/wael.ahmed/.gradle/caches/transforms-4/375d8d34e726a6a93605823fd12b2369/transformed/navigation-runtime-ktx-2.5.1/res
+com.app.movies.app-startup-runtime-1.1.1-15 /Users/wael.ahmed/.gradle/caches/transforms-4/3820a52a108b983fc9e776dd8fe5331f/transformed/startup-runtime-1.1.1/res
+com.app.movies.app-ui-release-16 /Users/wael.ahmed/.gradle/caches/transforms-4/38e4a6d11871f1d248a563398a2b657b/transformed/ui-release/res
+com.app.movies.app-material-icons-core-release-17 /Users/wael.ahmed/.gradle/caches/transforms-4/39254518e74fe0cdacaf89ca25d79d97/transformed/material-icons-core-release/res
+com.app.movies.app-lifecycle-viewmodel-savedstate-2.7.0-18 /Users/wael.ahmed/.gradle/caches/transforms-4/44fe4ef42c71b15b81c44feb8d09dbb0/transformed/lifecycle-viewmodel-savedstate-2.7.0/res
+com.app.movies.app-sqlite-framework-2.3.1-19 /Users/wael.ahmed/.gradle/caches/transforms-4/4e58ee40a59698001f2944cc5620ab75/transformed/sqlite-framework-2.3.1/res
+com.app.movies.app-fragment-1.6.0-20 /Users/wael.ahmed/.gradle/caches/transforms-4/4ead420104c77feb643d7fa1441e6049/transformed/fragment-1.6.0/res
+com.app.movies.app-lifecycle-viewmodel-compose-2.7.0-21 /Users/wael.ahmed/.gradle/caches/transforms-4/5179767e7b744a279684cf780fa098ca/transformed/lifecycle-viewmodel-compose-2.7.0/res
+com.app.movies.app-activity-ktx-1.9.0-22 /Users/wael.ahmed/.gradle/caches/transforms-4/541700310404d576646e42fa4c2d1acd/transformed/activity-ktx-1.9.0/res
+com.app.movies.app-ui-unit-release-23 /Users/wael.ahmed/.gradle/caches/transforms-4/54d8e55b9e64135e2c5c451345237cf0/transformed/ui-unit-release/res
+com.app.movies.app-sqlite-2.3.1-24 /Users/wael.ahmed/.gradle/caches/transforms-4/59a27d61e2f402cb52532a8d385953fa/transformed/sqlite-2.3.1/res
+com.app.movies.app-foundation-layout-release-25 /Users/wael.ahmed/.gradle/caches/transforms-4/5f6828edd9bfb467522b0c867a21383f/transformed/foundation-layout-release/res
+com.app.movies.app-material3-release-26 /Users/wael.ahmed/.gradle/caches/transforms-4/615a6e1995c9a6433c5c8015b951a602/transformed/material3-release/res
+com.app.movies.app-lifecycle-livedata-ktx-2.7.0-27 /Users/wael.ahmed/.gradle/caches/transforms-4/631e3ecf4d99408effa02697c609a45e/transformed/lifecycle-livedata-ktx-2.7.0/res
+com.app.movies.app-hilt-navigation-compose-1.2.0-28 /Users/wael.ahmed/.gradle/caches/transforms-4/6d08ad91d911193c53c6883a679450c0/transformed/hilt-navigation-compose-1.2.0/res
+com.app.movies.app-material-1.9.0-29 /Users/wael.ahmed/.gradle/caches/transforms-4/7688fe77512807aa8b686473909aa4cf/transformed/material-1.9.0/res
+com.app.movies.app-savedstate-1.2.1-30 /Users/wael.ahmed/.gradle/caches/transforms-4/7dee96b962643b9fd333adb7fb0a5740/transformed/savedstate-1.2.1/res
+com.app.movies.app-material-release-31 /Users/wael.ahmed/.gradle/caches/transforms-4/7e5900b4658472e22a9ceadd59fd4ca0/transformed/material-release/res
+com.app.movies.app-core-runtime-2.2.0-32 /Users/wael.ahmed/.gradle/caches/transforms-4/83e10439e80a0764fa7afeaa7cb6f86e/transformed/core-runtime-2.2.0/res
+com.app.movies.app-drawerlayout-1.1.1-33 /Users/wael.ahmed/.gradle/caches/transforms-4/85bfcf53c2fe0d621b15c3e4025a5025/transformed/drawerlayout-1.1.1/res
+com.app.movies.app-runtime-release-34 /Users/wael.ahmed/.gradle/caches/transforms-4/864c691da06c0ae02d6ac4c0a2a6104d/transformed/runtime-release/res
+com.app.movies.app-lifecycle-runtime-2.7.0-35 /Users/wael.ahmed/.gradle/caches/transforms-4/88fcf25a6ac7c2cf2be120be22200ea9/transformed/lifecycle-runtime-2.7.0/res
+com.app.movies.app-navigation-common-2.5.1-36 /Users/wael.ahmed/.gradle/caches/transforms-4/a259aa599a01b7c11db17d4eb0cd4473/transformed/navigation-common-2.5.1/res
+com.app.movies.app-viewpager2-1.0.0-37 /Users/wael.ahmed/.gradle/caches/transforms-4/a27f71c966a030ed636789d7d395aa8c/transformed/viewpager2-1.0.0/res
+com.app.movies.app-room-ktx-2.5.2-38 /Users/wael.ahmed/.gradle/caches/transforms-4/a4dfe7c27137ff33855bcc04e069836f/transformed/room-ktx-2.5.2/res
+com.app.movies.app-savedstate-ktx-1.2.1-39 /Users/wael.ahmed/.gradle/caches/transforms-4/a5431aa8b0711a6ede7dfaa91f92f9a4/transformed/savedstate-ktx-1.2.1/res
+com.app.movies.app-room-runtime-2.5.2-40 /Users/wael.ahmed/.gradle/caches/transforms-4/a75e5ea921e74826523ec8b79a8f0c61/transformed/room-runtime-2.5.2/res
+com.app.movies.app-navigation-common-ktx-2.5.1-41 /Users/wael.ahmed/.gradle/caches/transforms-4/a767aaf9d3f65193c1c471f7df680d8c/transformed/navigation-common-ktx-2.5.1/res
+com.app.movies.app-appcompat-resources-1.6.1-42 /Users/wael.ahmed/.gradle/caches/transforms-4/ad83b55cfb753f3953f697a2f6062cdc/transformed/appcompat-resources-1.6.1/res
+com.app.movies.app-ui-util-release-43 /Users/wael.ahmed/.gradle/caches/transforms-4/adb0970174eb4fecdab48ee299dd83a1/transformed/ui-util-release/res
+com.app.movies.app-ui-tooling-release-44 /Users/wael.ahmed/.gradle/caches/transforms-4/b336cb07cf654f421cf224eb60b81abd/transformed/ui-tooling-release/res
+com.app.movies.app-lifecycle-viewmodel-ktx-2.7.0-45 /Users/wael.ahmed/.gradle/caches/transforms-4/bb4d6716c6c2a9202fc1e595f0cce12d/transformed/lifecycle-viewmodel-ktx-2.7.0/res
+com.app.movies.app-lifecycle-livedata-core-ktx-2.7.0-46 /Users/wael.ahmed/.gradle/caches/transforms-4/bd885f98317812ec518b8b9f16ce5784/transformed/lifecycle-livedata-core-ktx-2.7.0/res
+com.app.movies.app-ui-geometry-release-47 /Users/wael.ahmed/.gradle/caches/transforms-4/bdc38d2e4b4507eb0946c8e47cd2fde3/transformed/ui-geometry-release/res
+com.app.movies.app-lifecycle-livedata-2.7.0-48 /Users/wael.ahmed/.gradle/caches/transforms-4/be27c4c1d94106e60a358ed07621b930/transformed/lifecycle-livedata-2.7.0/res
+com.app.movies.app-coordinatorlayout-1.1.0-49 /Users/wael.ahmed/.gradle/caches/transforms-4/be2e1ad58de0c4a8193ee3dc00ce773e/transformed/coordinatorlayout-1.1.0/res
+com.app.movies.app-library-4.0.0-50 /Users/wael.ahmed/.gradle/caches/transforms-4/c118a887dea95f7ed8492d513da79088/transformed/library-4.0.0/res
+com.app.movies.app-annotation-experimental-1.4.0-51 /Users/wael.ahmed/.gradle/caches/transforms-4/c610bf335775d5a4595755e62925b1e3/transformed/annotation-experimental-1.4.0/res
+com.app.movies.app-emoji2-views-helper-1.3.0-52 /Users/wael.ahmed/.gradle/caches/transforms-4/ca1e5ad7014e799f72e284b4b3a40826/transformed/emoji2-views-helper-1.3.0/res
+com.app.movies.app-ui-test-manifest-1.6.7-53 /Users/wael.ahmed/.gradle/caches/transforms-4/cfc3c7765142910cfb5032bc0707a68d/transformed/ui-test-manifest-1.6.7/res
+com.app.movies.app-profileinstaller-1.3.1-54 /Users/wael.ahmed/.gradle/caches/transforms-4/d0168343964b08cab45b499f06e50df4/transformed/profileinstaller-1.3.1/res
+com.app.movies.app-animation-release-55 /Users/wael.ahmed/.gradle/caches/transforms-4/d3ef7b014a425caaa57c683788d74712/transformed/animation-release/res
+com.app.movies.app-core-ktx-1.13.1-56 /Users/wael.ahmed/.gradle/caches/transforms-4/d8c7e03458d1a557194d9e19b7dc1c15/transformed/core-ktx-1.13.1/res
+com.app.movies.app-transition-1.2.0-57 /Users/wael.ahmed/.gradle/caches/transforms-4/da54d73765c676e34767023a75d0d715/transformed/transition-1.2.0/res
+com.app.movies.app-foundation-release-58 /Users/wael.ahmed/.gradle/caches/transforms-4/e01eb47d3156039edf274858edfd8bf8/transformed/foundation-release/res
+com.app.movies.app-recyclerview-1.1.0-59 /Users/wael.ahmed/.gradle/caches/transforms-4/e2212c16bab6def2370ee87605e66519/transformed/recyclerview-1.1.0/res
+com.app.movies.app-coil-base-2.6.0-60 /Users/wael.ahmed/.gradle/caches/transforms-4/e382c27857ad9437a7471d09e0ec53ac/transformed/coil-base-2.6.0/res
+com.app.movies.app-lifecycle-runtime-ktx-2.7.0-61 /Users/wael.ahmed/.gradle/caches/transforms-4/e539d82b2d81c4fd99baf4658e8e7914/transformed/lifecycle-runtime-ktx-2.7.0/res
+com.app.movies.app-ui-tooling-preview-release-62 /Users/wael.ahmed/.gradle/caches/transforms-4/e6ca4a261170bba9fca5a898397c45d0/transformed/ui-tooling-preview-release/res
+com.app.movies.app-hilt-navigation-1.2.0-63 /Users/wael.ahmed/.gradle/caches/transforms-4/ea219c9c89191a2e52c97f3a2c6c7a4f/transformed/hilt-navigation-1.2.0/res
+com.app.movies.app-lifecycle-viewmodel-2.7.0-64 /Users/wael.ahmed/.gradle/caches/transforms-4/eb2b6b850532cf357bc4fc5917418b73/transformed/lifecycle-viewmodel-2.7.0/res
+com.app.movies.app-customview-poolingcontainer-1.0.0-65 /Users/wael.ahmed/.gradle/caches/transforms-4/edf427ad2ca6c8f757736adc06d59705/transformed/customview-poolingcontainer-1.0.0/res
+com.app.movies.app-lifecycle-livedata-core-2.7.0-66 /Users/wael.ahmed/.gradle/caches/transforms-4/eefa480b62a45efbf314d5a937c3638b/transformed/lifecycle-livedata-core-2.7.0/res
+com.app.movies.app-constraintlayout-2.1.4-67 /Users/wael.ahmed/.gradle/caches/transforms-4/f82cce2e8a74158ba0b2043a63d92e2d/transformed/constraintlayout-2.1.4/res
+com.app.movies.app-fragment-ktx-1.6.0-68 /Users/wael.ahmed/.gradle/caches/transforms-4/fbf980803e51559c10e7ff904ec48689/transformed/fragment-ktx-1.6.0/res
+com.app.movies.app-ui-tooling-data-release-69 /Users/wael.ahmed/.gradle/caches/transforms-4/fe273de4996d6d596758186b063f0a0b/transformed/ui-tooling-data-release/res
+com.app.movies.app-lifecycle-runtime-compose-2.7.0-70 /Users/wael.ahmed/.gradle/caches/transforms-4/ffa181efadfa63f1fb431f199dc64dc7/transformed/lifecycle-runtime-compose-2.7.0/res
+com.app.movies.app-production-71 /Users/wael.ahmed/Android Samples/movies/app/build/generated/res/resValues/production/debug
+com.app.movies.app-packageProductionDebugResources-72 /Users/wael.ahmed/Android Samples/movies/app/build/intermediates/incremental/productionDebug/packageProductionDebugResources/merged.dir
+com.app.movies.app-packageProductionDebugResources-73 /Users/wael.ahmed/Android Samples/movies/app/build/intermediates/incremental/productionDebug/packageProductionDebugResources/stripped.dir
+com.app.movies.app-productionDebug-74 /Users/wael.ahmed/Android Samples/movies/app/build/intermediates/merged_res/productionDebug/mergeProductionDebugResources
+com.app.movies.app-debug-75 /Users/wael.ahmed/Android Samples/movies/app/src/debug/res
+com.app.movies.app-main-76 /Users/wael.ahmed/Android Samples/movies/app/src/main/res
+com.app.movies.app-production-77 /Users/wael.ahmed/Android Samples/movies/app/src/production/res
+com.app.movies.app-productionDebug-78 /Users/wael.ahmed/Android Samples/movies/app/src/productionDebug/res
