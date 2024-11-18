@@ -15,17 +15,7 @@ import kotlinx.coroutines.launch
 abstract class BaseViewModel<UiState : ViewState, Event : ViewEvent, Effect : ViewSideEffect> :
     ViewModel() {
 
-//    @Inject
-//    lateinit var serializationService: ISerializationService
 
-//    @Inject
-//    lateinit var loggingService: ILoggingService
-
-//    @Inject
-//    lateinit var sharedPrefManager: ISharedPrefManager
-//
-//    @Inject
-//    lateinit var connectivityService: IConnectivityService
 
     abstract fun setInitialState(): UiState
     abstract fun handleEvents(event: Event)
@@ -61,14 +51,6 @@ abstract class BaseViewModel<UiState : ViewState, Event : ViewEvent, Effect : Vi
         viewModelScope.launch { _event.emit(event) }
     }
 
-//    fun getLocalization(): MutableMap<String, MutableList<LocalizationModel>> {
-//        val screenMapJson = sharedPrefManager.getString("localizationMap")
-//        val gson = Gson()
-//        val type =
-//            object : TypeToken<MutableMap<String, MutableList<LocalizationModel>>>() {}.type
-//        return gson.fromJson(screenMapJson, type)
-//    }
-
     fun setEventWithSideEffect(event: Event, builder: () -> Effect) {
         setEvent(event)
         setEffect(builder)
@@ -87,47 +69,5 @@ abstract class BaseViewModel<UiState : ViewState, Event : ViewEvent, Effect : Vi
     }
 
     fun isNetworkAvailable() = true
-
-//    fun <T> launchAndCollectResult(
-//        flow: Flow<T>,
-//        resultGQLSuccess: (T) -> Unit = {},
-//        resultGQLFailure: (NetworkResult.Failure) -> Unit = {},
-//        onError: (ErrorResponse) -> Unit = {},
-//        onStart: () -> Unit = {},
-//        onComplete: (Throwable?) -> Unit = {},
-//        skipAfterInitial: Boolean = true,
-//        bypassNetworkCheck: Boolean = false
-//    ): Job? {
-//        return if (initialState == _viewState && skipAfterInitial) {
-//            null
-//        } else if (isNetworkAvailable() || bypassNetworkCheck) {
-//            viewModelScope.launch {
-//                flow.flowOn(
-//                    Dispatchers.IO
-//                ).onStart {
-//                    onStart()
-//                }.onCompletion { cause ->
-//                    onComplete(cause)
-//                }.catch { exception ->
-//                    //     loggingService.stackTrace(exception)
-//                    onError(
-//                        ErrorResponse(
-//                            body = ErrorBody(
-//                                message = exception.message,
-//                                errors = null
-//                            ), code = null
-//                        )
-//                    )
-//                }.safeCollect { result ->
-//                    if (result is NetworkResult.Failure) resultGQLFailure(result)
-//                    else resultGQLSuccess(result)
-//                }
-//            }
-//        } else {
-////            onError(ErrorResponse(networkError = NoInternetThrowable))
-//            onComplete(null)
-//            null
-//        }
-//    }
 
 }
