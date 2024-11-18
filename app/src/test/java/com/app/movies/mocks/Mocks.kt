@@ -5,6 +5,7 @@ import com.app.movies.core.data.models.Genre
 import com.app.movies.core.data.models.Movie
 import com.app.movies.core.data.models.MovieDetailsResponse
 import com.app.movies.core.data.models.ProductionCompany
+import com.app.movies.core.data.models.SimilarMoviesResponse
 
 
 object MocksMovies {
@@ -113,6 +114,47 @@ object MocksMovies {
                 posterPath = "/mock_collection_poster.jpg",
                 backdropPath = "/mock_collection_backdrop.jpg"
             )
+        )
+    }
+    fun getMockSimilarMovies(): SimilarMoviesResponse {
+        return SimilarMoviesResponse(
+            page = 1,
+            results = listOf(
+                Movie(
+                    id = 101,
+                    title = "Similar Movie 1",
+                    overview = "Overview of the first similar movie.",
+                    releaseDate = "2024-06-15",
+                    voteAverage = 7.2,
+                    voteCount = 500,
+                    posterPath = "/similar_movie_1_poster.jpg",
+                    backdropPath = "/similar_movie_1_backdrop.jpg",
+                    genreIds = listOf(28, 12),
+                    popularity = 95.4,
+                    adult = false,
+                    originalLanguage = "en",
+                    originalTitle = "Similar Movie 1",
+                    video = false
+                ),
+                Movie(
+                    id = 102,
+                    title = "Similar Movie 2",
+                    overview = "Overview of the second similar movie.",
+                    releaseDate = "2024-07-20",
+                    voteAverage = 8.0,
+                    voteCount = 800,
+                    posterPath = "/similar_movie_2_poster.jpg",
+                    backdropPath = "/similar_movie_2_backdrop.jpg",
+                    genreIds = listOf(16, 35),
+                    popularity = 120.7,
+                    adult = false,
+                    originalLanguage = "en",
+                    originalTitle = "Similar Movie 2",
+                    video = false
+                )
+            ),
+            totalPages = 1,
+            totalResults = 2
         )
     }
 }

@@ -150,4 +150,108 @@ class MoviesRepoImplTest {
         assert(results.last().isFailure)
     }
 
+    @Test
+    fun `getSimilarMovies returns successful response with results`() = runBlockingTest {
+        // Mock data
+        val mockResponse = SimilarMoviesResponse(
+            page = 1,
+            results = listOf(
+                Movie(
+                    id = 101,
+                    title = "Similar Movie 1",
+                    overview = "Overview of the first similar movie.",
+                    releaseDate = "2024-06-15",
+                    voteAverage = 7.2,
+                    voteCount = 500,
+                    posterPath = "/similar_movie_1_poster.jpg",
+                    backdropPath = "/similar_movie_1_backdrop.jpg",
+                    genreIds = listOf(28, 12),
+                    popularity = 95.4,
+                    adult = false,
+                    originalLanguage = "en",
+                    originalTitle = "Similar Movie 1",
+                    video = false
+                ),
+                Movie(
+                    id = 102,
+                    title = "Similar Movie 2",
+                    overview = "Overview of the second similar movie.",
+                    releaseDate = "2024-07-20",
+                    voteAverage = 8.0,
+                    voteCount = 800,
+                    posterPath = "/similar_movie_2_poster.jpg",
+                    backdropPath = "/similar_movie_2_backdrop.jpg",
+                    genreIds = listOf(16, 35),
+                    popularity = 120.7,
+                    adult = false,
+                    originalLanguage = "en",
+                    originalTitle = "Similar Movie 2",
+                    video = false
+                )
+            ),
+            totalPages = 1,
+            totalResults = 2
+        )
+
+        // Mock API response
+        `when`(apiService.getSimilarMovies(101)).thenReturn(Response.success(mockResponse))
+
+        // Execute
+        val results = moviesRepo.getSimilarMovies(movieId = 101).toList()
+
+        // Verify
+        assertEquals(Result.success(mockResponse), results.last())
+        assertEquals(2, results.last().getOrThrow().results.size)
+        assertEquals("Similar Movie 1", results.last().getOrThrow().results[0].title)
+    }
+
+    @Test
+    fun `getSimilarMovies returns successful response with no results`() = runBlockingTest {
+        // Mock data
+        val mockResponse = SimilarMoviesResponse(
+            page = 1,
+            results = emptyList(),
+            totalPages = 1,
+            totalResults = 0
+        )
+
+        // Mock API response
+        `when`(apiService.getSimilarMovies(999)).thenReturn(Response.success(mockResponse))
+
+        // Execute
+        val results = moviesRepo.getSimilarMovies(movieId = 999).toList()
+
+        // Verify
+        assertEquals(Result.success(mockResponse), results.last())
+        assertTrue(results.last().getOrThrow().results.isEmpty())
+    }
+
+    @Test
+    fun `getSimilarMovies returns error response`() = runBlockingTest {
+        // Mock API response
+        `when`(apiService.getSimilarMovies(999)).thenReturn(
+            Response.error(404, okhttp3.ResponseBody.create(null, "Not Found"))
+        )
+
+        // Execute
+        val results = moviesRepo.getSimilarMovies(movieId = 999).toList()
+
+        // Verify
+        assert(results.last().isFailure)
+    }
+
+    @Test
+    fun `getSimilarMovies handles exception`() = runBlockingTest {
+        // Mock API exception
+        `when`(apiService.getSimilarMovies(101)).thenThrow(RuntimeException("Network error"))
+
+        // Execute
+        val results = moviesRepo.getSimilarMovies(movieId = 101).toList()
+
+        // Verify
+        assert(results.last().isFailure)
+        assertEquals("Network error", (results.last().exceptionOrNull() as RuntimeException).message)
+    }
+
+
 }
