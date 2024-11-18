@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -6,7 +8,12 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
-
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
+}
+val apiKey = localProperties.getProperty("API_KEY", "")
 android {
     namespace = "com.app.movies"
     compileSdk = 34
@@ -35,6 +42,7 @@ android {
     }
     val flavorDimension = "default"
 
+
     flavorDimensions(flavorDimension)
     productFlavors {
         //TODO change endpoint
@@ -43,9 +51,10 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://www.karanpratapsingh.com/courses/system-design/ip/\""
+                "\"https://api.themoviedb.org/3/\""
             )
             buildConfigField("boolean", "enableNetworkLogging", "true")
+            buildConfigField("String", "API_KEY", "\"$apiKey\"")
         }
 
         //TODO change endpoint
@@ -54,8 +63,9 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://www.karanpratapsingh.com/courses/system-design/ip/\""
+                "\"https://api.themoviedb.org/3/\""
             )
+            buildConfigField("String", "API_KEY", "\"$apiKey\"")
             buildConfigField("boolean", "enableNetworkLogging", "false")
         }
     }

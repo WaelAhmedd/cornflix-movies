@@ -9,27 +9,23 @@ import okhttp3.Response
 import javax.inject.Inject
 
 class AccessTokenInterceptor @Inject constructor(
-    private val sessionService: SessionService
+    private val sessionService: SessionService, private val apiKey: String
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        val builder = chain.request().newBuilder()
+        val originalRequest = chain.request()
+        val originalUrl = originalRequest.url
 
-        if (InterceptorUtils.hasHeader(
-                chain,
-                AppHeaders.HEADER_ACCESS_TOKEN_PLACEHOLDER
-            )
-        ) {
-//            sessionService.getAccessToken()
-//                ?.let {
-//                    InterceptorUtils.setHeader(
-//                        builder,
-//                        AppHeaders.HEADER_ACCESS_TOKEN_PLACEHOLDER,
-//                        "Bearer $it"
-//                    )
-//                }
-        }
+        // Add the API key as a query parameter
+        val urlWithApiKey = originalUrl.newBuilder()
+            .addQueryParameter("api_key", apiKey)
+            .build()
 
-        return chain.proceed(builder.build())
+        // Build a new request with the updated URL
+        val requestWithApiKey = originalRequest.newBuilder()
+            .url(urlWithApiKey)
+            .build()
+
+        return chain.proceed(requestWithApiKey)
 
     }
 }
