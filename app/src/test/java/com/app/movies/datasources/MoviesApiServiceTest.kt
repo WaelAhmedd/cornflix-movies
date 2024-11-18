@@ -287,6 +287,122 @@ class MoviesApiServiceTest {
     }
 
 
+    @Test
+    fun `getSimilarMovies returns successful response with results`(): Unit = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(200)
+            .setBody(
+                """
+            {
+              "page": 1,
+              "results": [
+                {
+                  "id": 201,
+                  "title": "Similar Test Movie",
+                  "overview": "Overview of a similar movie.",
+                  "release_date": "2024-06-01",
+                  "vote_average": 7.8,
+                  "vote_count": 500,
+                  "poster_path": "/similar_poster.jpg",
+                  "backdrop_path": "/similar_backdrop.jpg",
+                  "genre_ids": [28, 12],
+                  "popularity": 95.4,
+                  "adult": false,
+                  "original_language": "en",
+                  "original_title": "Similar Test Movie",
+                  "video": false
+                }
+              ],
+              "total_pages": 1,
+              "total_results": 1
+            }
+            """
+            )
+        mockWebServer.enqueue(mockResponse)
 
+        val response = apiService.getSimilarMovies(movieId = 201)
+
+        assertNotNull(response.body())
+        assertEquals(1, response.body()?.results?.size)
+        assertEquals("Similar Test Movie", response.body()?.results?.first()?.title)
+        response.body()?.results?.first()?.voteAverage?.let { assertEquals(7.8, it, 0.0) }
+    }
+    @Test
+    fun `getSimilarMovies returns successful response with no results`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(200)
+            .setBody(
+                """
+            {
+              "page": 1,
+              "results": [],
+              "total_pages": 1,
+              "total_results": 0
+            }
+            """
+            )
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getSimilarMovies(movieId = 202)
+
+        assertNotNull(response.body())
+        assertEquals(0, response.body()?.results?.size)
+        assertEquals(1, response.body()?.page)
+        assertEquals(0, response.body()?.totalResults)
+    }
+
+    @Test
+    fun `getSimilarMovies returns 404 error`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(404)
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getSimilarMovies(movieId = 999999)
+
+        assertEquals(404, response.code())
+        assertNotNull(response.errorBody())
+    }
+    @Test
+    fun `getSimilarMovies handles missing fields in response`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(200)
+            .setBody(
+                """
+            {
+              "page": 1,
+              "results": [
+                {
+                  "id": 203,
+                  "title": "",
+                  "overview": null,
+                  "release_date": "",
+                  "vote_average": 0.0,
+                  "vote_count": 0,
+                  "poster_path": null,
+                  "backdrop_path": null,
+                  "genre_ids": [],
+                  "popularity": 0.0,
+                  "adult": false,
+                  "original_language": "en",
+                  "original_title": "",
+                  "video": false
+                }
+              ],
+              "total_pages": 1,
+              "total_results": 1
+            }
+            """
+            )
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getSimilarMovies(movieId = 203)
+
+        assertNotNull(response.body())
+        val movie = response.body()?.results?.first()
+        assertNotNull(movie)
+        assertEquals("", movie?.title)
+        movie?.voteAverage?.let { assertEquals(0.0, it, 0.0) }
+        assertEquals(0, movie?.voteCount)
+    }
 
 }
