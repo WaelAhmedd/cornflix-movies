@@ -7,6 +7,8 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
@@ -166,6 +168,125 @@ class MoviesApiServiceTest {
         assertEquals(404, response.code())
         assertNotNull(response.errorBody())
     }
+
+
+    @Test
+    fun `getMovieDetails returns successful response`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(200)
+            .setBody(
+                """
+            {
+              "id": 101,
+              "title": "Test Movie Details",
+              "overview": "Detailed overview of the test movie.",
+              "release_date": "2024-05-10",
+              "vote_average": 8.2,
+              "vote_count": 1500,
+              "poster_path": "/test_poster.jpg",
+              "backdrop_path": "/test_backdrop.jpg",
+              "genres": [
+                { "id": 28, "name": "Action" },
+                { "id": 12, "name": "Adventure" }
+              ],
+              "runtime": 120,
+              "budget": 200000000,
+              "revenue": 500000000,
+              "status": "Released",
+              "tagline": "The best test movie ever!",
+              "homepage": "https://example.com",
+              "production_companies": [
+                {
+                  "id": 1,
+                  "name": "Test Production",
+                  "logo_path": "/test_logo.jpg",
+                  "origin_country": "US"
+                }
+              ]
+            }
+            """
+            )
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getMovieDetails(movieId = 101)
+
+        assertNotNull(response.body())
+        assertEquals("Test Movie Details", response.body()?.title)
+        response.body()?.voteAverage?.let { assertEquals(8.2, it, 0.0) }
+        assertEquals(2, response.body()?.genres?.size)
+        assertEquals("Action", response.body()?.genres?.first()?.name)
+        assertEquals(120, response.body()?.runtime)
+    }
+    @Test
+    fun `getMovieDetails returns 404 error`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(404)
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getMovieDetails(movieId = 999999)
+
+        assertEquals(404, response.code())
+        assertNotNull(response.errorBody())
+    }
+    @Test
+    fun `getMovieDetails handles missing fields in response`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(200)
+            .setBody(
+                """
+            {
+              "id": 102,
+              "title": "",
+              "overview": null,
+              "release_date": "",
+              "vote_average": 0.0,
+              "vote_count": 0,
+              "poster_path": null,
+              "backdrop_path": null,
+              "genres": [],
+              "runtime": null,
+              "budget": null,
+              "revenue": null,
+              "status": "Unknown",
+              "tagline": null,
+              "homepage": null,
+              "production_companies": []
+            }
+            """
+            )
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getMovieDetails(movieId = 102)
+
+        assertNotNull(response.body())
+        val movie = response.body()
+        assertEquals("", movie?.title)
+        assertEquals("Unknown", movie?.status)
+        assertTrue(movie?.genres?.isEmpty() == true)
+        assertNull(movie?.runtime)
+        assertNull(movie?.budget)
+    }
+    @Test
+    fun `getMovieDetails returns error for invalid movie ID`() = runBlocking {
+        val mockResponse = MockResponse()
+            .setResponseCode(400)
+            .setBody(
+                """
+            {
+              "status_code": 34,
+              "status_message": "The resource you requested could not be found."
+            }
+            """
+            )
+        mockWebServer.enqueue(mockResponse)
+
+        val response = apiService.getMovieDetails(movieId = -1)
+
+        assertEquals(400, response.code())
+        assertNotNull(response.errorBody())
+    }
+
+
 
 
 }

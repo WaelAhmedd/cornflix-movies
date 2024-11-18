@@ -117,6 +117,14 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation(libs.accompanist.systemuicontroller)
+    // Unit testing
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:4.0.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    // Retrofit mock server
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
 
 
 }
