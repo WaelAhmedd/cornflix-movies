@@ -1,7 +1,7 @@
 package com.app.movies.core.network.base
 
 
-import com.app.movies.core.flowretrofitcalladapter.FlowCallAdapterFactory
+import com.app.movies.core.network.flowretrofitcalladapter.FlowCallAdapterFactory
 import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 
