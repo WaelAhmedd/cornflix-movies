@@ -1,5 +1,6 @@
 package com.app.movies.core.data.datasources
 
+import com.app.movies.core.data.models.MovieCreditsResponse
 import com.app.movies.core.data.models.MovieDetailsResponse
 import com.app.movies.core.data.models.PopularMoviesResponse
 import com.app.movies.core.data.models.SearchMoviesResponse
@@ -32,5 +33,10 @@ interface MoviesApiService {
     suspend fun getSimilarMovies(
         @Path("movie_id") movieId: Int
     ): Response<SimilarMoviesResponse>
+
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCredits(
+        @Path("movie_id") movieId: Int,
+    ): Response<MovieCreditsResponse>
 
 }

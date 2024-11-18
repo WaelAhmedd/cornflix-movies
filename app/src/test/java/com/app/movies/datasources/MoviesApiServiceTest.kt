@@ -405,4 +405,69 @@ class MoviesApiServiceTest {
         assertEquals(0, movie?.voteCount)
     }
 
+    @Test
+    fun `getMovieCredits should return valid cast and crew details`() = runBlocking {
+        // Mocked Response
+        val mockResponse = """
+        {
+          "id": 22,
+          "cast": [
+            {
+              "adult": false,
+              "gender": 2,
+              "id": 85,
+              "known_for_department": "Acting",
+              "name": "Johnny Depp",
+              "original_name": "Johnny Depp",
+              "popularity": 71.926,
+              "profile_path": "/2o3yuxs37GzuhgWfgrxgw2WYYm9.jpg",
+              "cast_id": 12,
+              "character": "Jack Sparrow",
+              "credit_id": "52fe420fc3a36847f8000ecb",
+              "order": 0
+            }
+          ],
+          "crew": [
+            {
+              "adult": false,
+              "gender": 2,
+              "id": 1704,
+              "known_for_department": "Directing",
+              "name": "Gore Verbinski",
+              "original_name": "Gore Verbinski",
+              "popularity": 5.03,
+              "profile_path": "/rSQRdmLNAwdKxrtvBSSlBmWeSsj.jpg",
+              "credit_id": "52fe420fc3a36847f8000ea9",
+              "department": "Directing",
+              "job": "Director"
+            }
+          ]
+        }
+    """
+        mockWebServer.enqueue(MockResponse().setBody(mockResponse).setResponseCode(200))
+
+        // API Call
+        val response = apiService.getMovieCredits(movieId = 22)
+
+        // Assertions
+        assertTrue(response.isSuccessful)
+        val body = response.body()
+        assertEquals(22, body?.id)
+
+        // Cast assertions
+        assertEquals(1, body?.cast?.size)
+        val castMember = body?.cast?.first()
+        assertEquals("Johnny Depp", castMember?.name)
+        assertEquals("Jack Sparrow", castMember?.character)
+        assertEquals("/2o3yuxs37GzuhgWfgrxgw2WYYm9.jpg", castMember?.profilePath)
+
+        // Crew assertions
+        assertEquals(1, body?.crew?.size)
+        val crewMember = body?.crew?.first()
+        assertEquals("Gore Verbinski", crewMember?.name)
+        assertEquals("Director", crewMember?.job)
+        assertEquals("Directing", crewMember?.department)
+    }
+
+
 }
