@@ -1,6 +1,7 @@
 package com.app.movies.core.data.reposimp
 
 import com.app.movies.core.data.datasources.MoviesApiService
+import com.app.movies.core.data.models.MovieDetailsResponse
 import com.app.movies.core.data.models.PopularMoviesResponse
 import com.app.movies.core.data.models.SearchMoviesResponse
 import com.app.movies.core.domain.repos.IMoviesRepo
@@ -30,6 +31,21 @@ class MoviesRepoImpl @Inject constructor(
     override fun searchMovies(query: String, page: Int): Flow<Result<SearchMoviesResponse>> = flow {
         try {
             val response = apiService.searchMovies(query, page)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    emit(Result.success(it))
+                } ?: emit(Result.failure(Exception("No data available")))
+            } else {
+                emit(Result.failure(Exception("Error: ${response.message()}")))
+            }
+        } catch (e: Exception) {
+            emit(Result.failure(e))
+        }
+    }
+
+    override fun getMovieDetails(movieId: Int): Flow<Result<MovieDetailsResponse>> = flow {
+        try {
+            val response = apiService.getMovieDetails(movieId)
             if (response.isSuccessful) {
                 response.body()?.let {
                     emit(Result.success(it))

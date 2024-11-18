@@ -121,4 +121,33 @@ class MoviesRepoImplTest {
         assert(results.last().isFailure)
     }
 
+    @Test
+    fun `getMovieDetails returns successful response`() = runBlockingTest {
+        // Mock data
+        val mockResponse = MocksMovies.getMockMovieDetails()
+
+        `when`(apiService.getMovieDetails(3)).thenReturn(Response.success(mockResponse))
+
+        // Execute
+        val results = moviesRepo.getMovieDetails(movieId = 3).toList()
+
+        // Verify
+        assertEquals(Result.success(mockResponse), results.last())
+        assertEquals("Mock Movie Details", results.last().getOrThrow().title)
+    }
+
+    @Test
+    fun `getMovieDetails returns error response`() = runBlockingTest {
+        // Mock error response
+        `when`(apiService.getMovieDetails(999)).thenReturn(
+            Response.error(404, okhttp3.ResponseBody.create(null, "Not Found"))
+        )
+
+        // Execute
+        val results = moviesRepo.getMovieDetails(movieId = 999).toList()
+
+        // Verify
+        assert(results.last().isFailure)
+    }
+
 }

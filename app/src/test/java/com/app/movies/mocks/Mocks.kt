@@ -1,6 +1,10 @@
 package com.app.movies.mocks
 
+import com.app.movies.core.data.models.BelongsToCollection
+import com.app.movies.core.data.models.Genre
 import com.app.movies.core.data.models.Movie
+import com.app.movies.core.data.models.MovieDetailsResponse
+import com.app.movies.core.data.models.ProductionCompany
 
 
 object MocksMovies {
@@ -70,6 +74,44 @@ object MocksMovies {
                 originalLanguage = "en",
                 originalTitle = "Mock Movie 4",
                 video = false
+            )
+        )
+    }
+
+
+    fun getMockMovieDetails(): MovieDetailsResponse {
+        return MovieDetailsResponse(
+            id = 3,
+            title = "Mock Movie Details",
+            overview = "A detailed overview of the mock movie.",
+            releaseDate = "2024-07-01",
+            voteAverage = 8.5,
+            voteCount = 1200,
+            posterPath = "/mock_movie_poster.jpg",
+            backdropPath = "/mock_movie_backdrop.jpg",
+            genres = listOf(
+                Genre(id = 28, name = "Action"),
+                Genre(id = 12, name = "Adventure")
+            ),
+            runtime = 130,
+            budget = 200000000,
+            revenue = 600000000,
+            status = "Released",
+            tagline = "A thrilling mock movie experience.",
+            homepage = "https://mockmovie.example.com",
+            productionCompanies = listOf(
+                ProductionCompany(
+                    id = 1,
+                    name = "Mock Production Company",
+                    logoPath = "/mock_logo.jpg",
+                    originCountry = "US"
+                )
+            ),
+            belongsToCollection = BelongsToCollection(
+                id = 10,
+                name = "Mock Movie Collection",
+                posterPath = "/mock_collection_poster.jpg",
+                backdropPath = "/mock_collection_backdrop.jpg"
             )
         )
     }
