@@ -2,6 +2,7 @@ package com.app.movies.core.network.di
 
 
 import android.content.Context
+import com.app.movies.BuildConfig
 import com.app.movies.core.network.interceptor.AccessTokenInterceptor
 import com.app.movies.core.domain.SessionService
 import com.app.movies.core.network.retrofit.Services
@@ -20,7 +21,7 @@ object RetrofitModule {
 
     @Provides
     fun provideAccessTokenInterceptor(sessionService: SessionService): AccessTokenInterceptor {
-        return AccessTokenInterceptor(sessionService)
+        return AccessTokenInterceptor(sessionService, BuildConfig.API_KEY)
     }
 
     @Provides
