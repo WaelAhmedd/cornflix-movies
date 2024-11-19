@@ -40,6 +40,7 @@ fun HomeScreen(
     var isSearchBarVisible by remember { mutableStateOf(false) }
     val watchlist by viewModel.watchlist.collectAsState()
     LaunchedEffect(Unit) {
+        viewModel.refreshWatchlist()
         viewModel.setEvent(HomeViewEvent.LoadPopularMovies)
     }
 

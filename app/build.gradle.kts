@@ -30,6 +30,12 @@ android {
             storeFile = file(keystoreProperties.getProperty("KEYSTORE_PATH"))
             storePassword = keystoreProperties.getProperty("KEYSTORE_PASSWORD")
         }
+        create("staging-release") {
+            keyAlias = keystoreProperties.getProperty("KEY_ALIAS")
+            keyPassword = keystoreProperties.getProperty("KEY_PASSWORD")
+            storeFile = file(keystoreProperties.getProperty("KEYSTORE_PATH"))
+            storePassword = keystoreProperties.getProperty("KEYSTORE_PASSWORD")
+        }
     }
     defaultConfig {
         applicationId = "com.app.movies"

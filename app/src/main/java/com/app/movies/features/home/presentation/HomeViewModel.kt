@@ -29,7 +29,7 @@ class HomeViewModel @Inject constructor(
     val watchlist: StateFlow<Set<Int>> = _watchlist
 
     init {
-        _watchlist.value = sessionService.getWatchlist()
+
     }
 
     override fun setInitialState(): HomeViewState = HomeViewState.Init
@@ -173,4 +173,7 @@ class HomeViewModel @Inject constructor(
         }
         _watchlist.value = currentWatchlist
     }
+
+    fun refreshWatchlist() {
+        _watchlist.value = sessionService.getWatchlist()    }
 }
