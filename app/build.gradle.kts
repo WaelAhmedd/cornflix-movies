@@ -8,12 +8,8 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
-val localProperties = Properties()
-val localPropertiesFile = rootProject.file("local.properties")
-if (localPropertiesFile.exists()) {
-    localProperties.load(localPropertiesFile.inputStream())
-}
-val apiKey = localProperties.getProperty("API_KEY", "")
+
+
 android {
     namespace = "com.app.movies"
     compileSdk = 34
@@ -23,6 +19,7 @@ android {
     if (keystoreFile.exists()) {
         keystoreProperties.load(keystoreFile.inputStream())
     }
+    val apiKey = keystoreProperties.getProperty("API_KEY", "")
     signingConfigs {
         create("production-release") {
             keyAlias = keystoreProperties.getProperty("KEY_ALIAS")
