@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Hotelizeit"
+rootProject.name = "Cornflix"
 include(":app")

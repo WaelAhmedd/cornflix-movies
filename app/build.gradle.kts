@@ -18,6 +18,19 @@ android {
     namespace = "com.app.movies"
     compileSdk = 34
 
+    val keystoreProperties = Properties()
+    val keystoreFile = rootProject.file("key.properties")
+    if (keystoreFile.exists()) {
+        keystoreProperties.load(keystoreFile.inputStream())
+    }
+    signingConfigs {
+        create("production-release") {
+            keyAlias = keystoreProperties.getProperty("KEY_ALIAS")
+            keyPassword = keystoreProperties.getProperty("KEY_PASSWORD")
+            storeFile = file(keystoreProperties.getProperty("KEYSTORE_PATH"))
+            storePassword = keystoreProperties.getProperty("KEYSTORE_PASSWORD")
+        }
+    }
     defaultConfig {
         applicationId = "com.app.movies"
         minSdk = 24
@@ -38,6 +51,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("production-release")
         }
     }
     val flavorDimension = "default"
