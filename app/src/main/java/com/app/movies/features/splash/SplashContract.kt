@@ -12,8 +12,7 @@ sealed class SplashEvent : ViewEvent {
 
 sealed class SplashState : ViewState {
     object Init : SplashState()
-    object Idle : SplashState()
-    class CheckingUpdate(val needUpdate: Boolean) : SplashState()
+
 }
 
 sealed class SplashSideEffect : ViewSideEffect {

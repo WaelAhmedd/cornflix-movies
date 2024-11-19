@@ -29,10 +29,10 @@ class SplashViewModel @Inject constructor(
     ) : BaseViewModel<SplashState, SplashEvent, SplashSideEffect>() {
 
     private fun startSplash() {
-        // Delay execution by 4 seconds
+
         Handler(Looper.getMainLooper()).postDelayed({
             setEffect { SplashSideEffect.NavigateToHomeScreen }
-        }, 4000) // 4000 milliseconds = 4 seconds
+        }, 3000)
     }
 
 

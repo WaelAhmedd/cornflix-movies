@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CircularProgressIndicator
@@ -115,19 +116,15 @@ fun HomeScreen(
             is HomeViewState.HomeScreenLoaded -> {
                 val groupedMovies = (state as HomeViewState.HomeScreenLoaded).groupedMovies
 
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 16.dp)
-                ) {
+                LazyColumn {
                     groupedMovies.forEach { (year, movies) ->
                         item {
                             Text(
                                 text = year.toString(),
-                                modifier = Modifier.padding(8.dp),
-                                style = MaterialTheme.typography.labelLarge
+                                modifier = Modifier.padding(8.dp)
                             )
                         }
-                        items(movies) { movie ->
+                        itemsIndexed(movies) { index, movie ->
                             MovieItem(
                                 movie = movie,
                                 isInWatchlist = watchlist.contains(movie.id),
@@ -136,9 +133,17 @@ fun HomeScreen(
                                 },
                                 navigateToMovies = { id -> navigateToMovieDetailsScreen.invoke(id) }
                             )
+
+                            if (index == movies.lastIndex) {
+                                LaunchedEffect(Unit) {
+                                    viewModel.setEvent(HomeViewEvent.LoadNextPage)
+                                }
+                            }
                         }
                     }
+
                 }
+
             }
         }
     }
